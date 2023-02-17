@@ -1,5 +1,4 @@
 import re
-import string
 
 text = """homEwork:
 
@@ -14,24 +13,9 @@ text = """homEwork:
 
 # Last words of each existing sentence
 all_last_word = re.findall(r'\s(\w+)?\.', text)
-#print(find_all_last_word)
-
-variable = all_last_word[0]
-view = all_last_word[1]
-paragraph = all_last_word[2]
-here = all_last_word[3]
-mistake = all_last_word[4]
-text_new = all_last_word[5]
-whitespaces = all_last_word[6]
-number_87 = all_last_word[7]
-
-# One more sentence with last words of each existing sentence
-new_sentence = f'\t{view}ing {here} the {paragraph} of this {text_new},it was found {number_87} {mistake}s in {variable}s written using {whitespaces}.\n'
-#print(new_sentence)
 
 # Adding new sentence to the end of this paragraph
-full_text = text + new_sentence
-#print(full_text)
+full_text = text + ' '.join(all_last_word)
 
 # Split message
 normalized = re.split('(\.\s+)', full_text)
@@ -41,7 +25,6 @@ capital_letters = [i.capitalize() for i in normalized]
 
 # Union back into single message
 capitalized_message = ''.join(capital_letters)
-#print(capitalized_message)
 
 # Replacing 'iz' by 'is' where it is not a mistake
 misspelling = capitalized_message.replace(' iz', ' is')
