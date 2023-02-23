@@ -11,30 +11,34 @@ message = """homEwork:
 	last iz TO calculate nuMber OF Whitespace characteRS in this Text. caREFULL, not only Spaces, but ALL whitespaces. I got 87.
 """
 
+
 # Last words of each existing sentence
-def find_all_last_word(a, b):
-    return re.findall(a, b)
+all_last_word = re.findall(r'\s(\w+)?\.', message)
+
 
 # Normalization and sentence with last words of each existing sentence
-def splitted(a):
-    text = message + ', '.join(find_all_last_word)
-    splitted = re.split(a, text)
-    capital_letters = [i.capitalize() for i in splitted]
+def normalization_text(a):
+    text = message + ', '.join(all_last_word)
+    normalization_text = re.split(a, text)
+    capital_letters = [i.capitalize() for i in normalization_text]
     return ''.join(capital_letters)
 
+
 # Replacing 'iz' by 'is' where it is not a mistake
-def misspelling(a, b):
-    return splitted.replace(a, b)
+normalized = re.split('(\.\s+)', message)
+capital_letters = [i.capitalize() for i in normalized]
+capitalized_message = ''.join(capital_letters)
+misspelling = capitalized_message.replace(' iz', ' is')
+
 
 # Calculate number of whitespace characters in this text
-def filtered_whitesp():
+def calculate_whitespace():
     return len(list(s for s in misspelling if s.isspace()))
 
-find_all_last_word = find_all_last_word('\s(\w+)?\.', message)
 
-splitted = splitted('(\.\s+)')
+normalization_text = normalization_text('(\.\s+)')
 
-misspelling = misspelling(" iz", " is")
+
 print(f'Corrected mistakes:\n{misspelling}')
 
-print(f'Number of whitespaces: {filtered_whitesp()}')
+print(f'Number of whitespaces: {calculate_whitespace()}')
