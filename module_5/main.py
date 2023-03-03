@@ -1,6 +1,6 @@
-from news import News
-from advertising import Advertising
-from quizlet import Quiz
+from classes.news import News
+from classes.advertising import Advertising
+from classes.quizlet import Quiz
 
 
 if __name__ == "__main__":
@@ -21,3 +21,4 @@ if __name__ == "__main__":
             break
         else:
             print('Try again')
+            

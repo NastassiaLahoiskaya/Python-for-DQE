@@ -9,6 +9,6 @@ class News:
                     f'{datetime.datetime.now().strftime("%d/%m/%y %H:%M")}\n\n'
 
     def print_news_into_file(self):
-        ptf = open("list_of_actions.txt", "a")
-        print(self.news, file=ptf)
-        ptf.close()
+        with open("list_of_actions.txt", "a") as opened_file:
+            opened_file.write(self.news)
+

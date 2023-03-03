@@ -9,6 +9,6 @@ class Quiz:
                         f'probability: {rand_num_list[0]} %\n\n'
 
     def print_question_into_file(self):
-        ptf = open("list_of_actions.txt", "a")
-        print(self.question, file=ptf)
-        ptf.close()
+        with open("list_of_actions.txt", "a") as opened_file:
+            opened_file.write(self.question)
+            
