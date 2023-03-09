@@ -1,7 +1,7 @@
 import os
 
 
-class NewsReader:
+class FileReader:
     # create a method which makes another directories and reads a file from that directory OR use the default one
     def read_news_from_another_file(self):
         original_path = os.path.dirname(os.path.realpath(__file__))
