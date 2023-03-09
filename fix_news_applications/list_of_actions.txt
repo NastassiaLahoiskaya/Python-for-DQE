@@ -1,6 +1,3 @@
-
-
-
 News -------------------------
 Snow fell in the mountains yesterday
 Almaty, 03/03/23 21:10
@@ -17,5 +14,3 @@ How do you think? ----------
 Who will win the fight: Batman or Spider-Man
 Batman
 probability: 56 %
-
-

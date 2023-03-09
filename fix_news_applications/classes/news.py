@@ -11,4 +11,3 @@ class News:
     def print_news_into_file(self):
         with open("list_of_actions.txt", "a") as opened_file:
             opened_file.write(self.news)
-
