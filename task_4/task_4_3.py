@@ -11,34 +11,27 @@ message = """homEwork:
 	last iz TO calculate nuMber OF Whitespace characteRS in this Text. caREFULL, not only Spaces, but ALL whitespaces. I got 87.
 """
 
-
 # Last words of each existing sentence
 all_last_word = re.findall(r'\s(\w+)?\.', message)
 
 
 # Normalization and sentence with last words of each existing sentence
-def normalization_text(a):
-    text = message + ', '.join(all_last_word)
-    normalization_text = re.split(a, text)
-    capital_letters = [i.capitalize() for i in normalization_text]
-    return ''.join(capital_letters)
-
-
-# Replacing 'iz' by 'is' where it is not a mistake
-normalized = re.split('(\.\s+)', message)
-capital_letters = [i.capitalize() for i in normalized]
-capitalized_message = ''.join(capital_letters)
-misspelling = capitalized_message.replace(' iz', ' is')
+def normalization_text(text_to_normalize):
+    text_to_normalize = text_to_normalize.lower()
+    normalized = re.split('(\.\s+)', text_to_normalize)
+    normalized_with_capitals = [i.capitalize() for i in normalized]
+    capitalized = ''.join(normalized_with_capitals)
+    normalized = capitalized.replace(' iz', ' is')
+    return ''.join(normalized)
 
 
 # Calculate number of whitespace characters in this text
-def calculate_whitespace():
-    return len(list(s for s in misspelling if s.isspace()))
+def calculate_whitespace(text):
+    return len(list(s for s in text if s.isspace()))
 
 
-normalization_text = normalization_text('(\.\s+)')
+normalized_text = normalization_text(message)
 
+print(f'Corrected mistakes:\n{normalized_text}')
 
-print(f'Corrected mistakes:\n{misspelling}')
-
-print(f'Number of whitespaces: {calculate_whitespace()}')
+print(f'Number of whitespaces: {calculate_whitespace(normalized_text)}')
