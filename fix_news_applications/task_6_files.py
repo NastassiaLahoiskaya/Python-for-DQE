@@ -4,7 +4,6 @@ from classes.advertising import Advertising
 from classes.file_reader import FileHandler
 from classes.news import News
 from classes.quizlet import Quiz
-from task_4.task_4_3 import normalization_text as normalize_text
 
 
 def main():

@@ -1,4 +1,5 @@
 import os
+
 from task_4.task_4_3 import normalization_text as normalize_text
 
 
@@ -21,4 +22,3 @@ class FileHandler:
 
     def normalize_text(self):
         self.content_from_file = normalize_text(self.content_from_file)
-
