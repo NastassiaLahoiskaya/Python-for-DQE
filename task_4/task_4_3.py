@@ -11,15 +11,14 @@ message = """homEwork:
 	last iz TO calculate nuMber OF Whitespace characteRS in this Text. caREFULL, not only Spaces, but ALL whitespaces. I got 87.
 """
 
-
 # Last words of each existing sentence
 all_last_word = re.findall(r'\s(\w+)?\.', message)
 
 
 # Normalization and sentence with last words of each existing sentence
-def normalization_text(a):
+def normalization_text(regexp='(\.\s+)'):
     text = message + ', '.join(all_last_word)
-    normalization_text = re.split(a, text)
+    normalization_text = re.split(regexp, text)
     capital_letters = [i.capitalize() for i in normalization_text]
     return ''.join(capital_letters)
 
@@ -37,7 +36,6 @@ def calculate_whitespace():
 
 
 normalization_text = normalization_text('(\.\s+)')
-
 
 print(f'Corrected mistakes:\n{misspelling}')
 

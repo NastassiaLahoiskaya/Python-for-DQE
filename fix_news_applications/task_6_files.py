@@ -1,9 +1,10 @@
 import os
 
 from classes.advertising import Advertising
-from classes.file_reader import FileReader
+from classes.file_reader import FileHandler
 from classes.news import News
 from classes.quizlet import Quiz
+from task_4.task_4_3 import normalization_text as normalize_text
 
 
 def main():
@@ -22,12 +23,22 @@ def main():
             question = Quiz(input('Who will win the fight: Batman or Spider-Man? Please enter your assumption\n'))
             question.print_question_into_file()
         elif flag == '4':
-            f_contents, path_for_remove = FileReader().read_news_from_another_file()
-            with open("new_message.txt", "a", encoding='utf-8') as file:
-                for line in f_contents:
-                    file.write(line)
-            print(f'This file {path_for_remove} will be removed now\n')
-            os.remove(path_for_remove)
+            input_file_path = input('Input file name where to read from: ')
+            while os.path.exists(input_file_path) is False:
+                input_file_path = input("File doesn't exists - input another file name: ")
+            answer = 0
+            while (answer == 1 or answer == 2) is False:
+                answer = int(input(
+                    f'If you want to ingest your file from default directory - enter 1, if you want to change it - enter 2: '))
+            if answer == 1:
+                output_file_path = f'{os.getcwd()}/list_of_actions.txt'
+            else:
+                output_file_path = input('Input file name where to write: ')
+            file_handler = FileHandler(input_file_path, output_file_path)
+            file_handler.read_file()
+            file_handler.normalize_text()
+            file_handler.write_to_file()
+            file_handler.delete_input_file()
         elif flag == '5':
             print('Stop')
             break
