@@ -4,12 +4,14 @@ from classes.advertising import Advertising
 from classes.file_reader import FileHandler
 from classes.news import News
 from classes.quizlet import Quiz
+from classes.word_count import WordCount
+from classes.letters_count import LettersCount
 
 
 def main():
     while True:
         print('What do you want to choose?', '1 - News', '2 - Private Ad', '3 - Quizlet',
-              '4 - Copying messages from file', '5 - Nothing', sep='\n')
+              '4 - Copying messages from file', '5 - Calculate number of words and letters', '6 - Nothing', sep='\n')
         flag = input('Choose the appropriate number: ')
         if flag == '1':
             news = News(input('Please enter news text\n'), input('Please enter location\n'))
@@ -28,7 +30,8 @@ def main():
             answer = 0
             while (answer == 1 or answer == 2) is False:
                 answer = int(input(
-                    f'If you want to ingest your file from default directory - enter 1, if you want to change it - enter 2: '))
+                    f'If you want to ingest your file from default directory - enter 1, '
+                    f'if you want to change it - enter 2: '))
             if answer == 1:
                 output_file_path = f'{os.getcwd()}/list_of_actions.txt'
             else:
@@ -39,6 +42,13 @@ def main():
             file_handler.write_to_file()
             file_handler.delete_input_file()
         elif flag == '5':
+            word_count = WordCount("list_of_actions.txt", 'Word_count.csv')
+            word_count.write_to_csv()
+            letters_count = LettersCount("list_of_actions.txt", 'Letter_count.csv')
+            letters_count.write_to_csv()
+            print('Word_count.csv and Letter_count.csv files are updated')
+            break
+        elif flag == '6':
             print('Stop')
             break
         else:
