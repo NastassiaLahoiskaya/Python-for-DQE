@@ -4,7 +4,7 @@ from classes.advertising import Advertising
 from classes.file_reader import FileHandler
 from classes.news import News
 from classes.quizlet import Quiz
-from classes.word_count import WordCount
+from classes.words_count import WordsCount
 from classes.letters_count import LettersCount
 
 
@@ -42,7 +42,7 @@ def main():
             file_handler.write_to_file()
             file_handler.delete_input_file()
         elif flag == '5':
-            word_count = WordCount("list_of_actions.txt", 'Word_count.csv')
+            word_count = WordsCount("list_of_actions.txt", 'Word_count.csv')
             word_count.write_to_csv()
             letters_count = LettersCount("list_of_actions.txt", 'Letter_count.csv')
             letters_count.write_to_csv()
