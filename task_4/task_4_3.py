@@ -32,6 +32,6 @@ def calculate_whitespace(text):
 
 normalized_text = normalization_text(message)
 
-print(f'Corrected mistakes:\n{normalized_text}')
+#print(f'Corrected mistakes:\n{normalized_text}')
 
-print(f'Number of whitespaces: {calculate_whitespace(normalized_text)}')
+#print(f'Number of whitespaces: {calculate_whitespace(normalized_text)}')

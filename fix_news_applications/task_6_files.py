@@ -4,6 +4,8 @@ from classes.advertising import Advertising
 from classes.file_reader import FileHandler
 from classes.news import News
 from classes.quizlet import Quiz
+from classes.words_count import WordsCount
+from classes.letters_count import LettersCount
 
 
 def main():
@@ -28,7 +30,8 @@ def main():
             answer = 0
             while (answer == 1 or answer == 2) is False:
                 answer = int(input(
-                    f'If you want to ingest your file from default directory - enter 1, if you want to change it - enter 2: '))
+                    f'If you want to ingest your file from default directory - enter 1, '
+                    f'if you want to change it - enter 2: '))
             if answer == 1:
                 output_file_path = f'{os.getcwd()}/list_of_actions.txt'
             else:
