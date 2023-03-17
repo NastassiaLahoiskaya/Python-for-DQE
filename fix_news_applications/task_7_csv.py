@@ -9,9 +9,10 @@ from classes.letters_count import LettersCount
 
 
 def main():
+    global output_file_path
     while True:
         print('What do you want to choose?', '1 - News', '2 - Private Ad', '3 - Quizlet',
-              '4 - Copying messages from file', '5 - Nothing', sep='\n')
+              '4 - Copying messages from file', '5 - Calculate number of words and letters', '6 - Nothing', sep='\n')
         flag = input('Choose the appropriate number: ')
         if flag == '1':
             news = News(input('Please enter news text\n'), input('Please enter location\n'))
@@ -42,6 +43,17 @@ def main():
             file_handler.write_to_file()
             file_handler.delete_input_file()
         elif flag == '5':
+            word_count = WordsCount("list_of_actions.txt", 'word_count.csv')
+            word_count.read_file()
+            word_count.count_words()
+            word_count.write_to_csv()
+            letters_count = LettersCount("list_of_actions.txt", 'letter_count.csv')
+            letters_count.read_file()
+            letters_count.count_letters()
+            letters_count.write_to_csv()
+            print('word_count.csv and letter_count.csv files are updated')
+            break
+        elif flag == '6':
             print('Stop')
             break
         else:
