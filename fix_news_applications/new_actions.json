@@ -1,0 +1,24 @@
+[
+    {
+        "type": "News",
+        "text": "I'm going to travel",
+        "location": "Almaty",
+        "date": "17/03/2023 10:58"
+    },
+    {
+        "type": "News",
+        "text": "I will finish homework",
+        "location": "Almaty",
+        "date": "17/03/2023 17:58"
+    },
+    {
+        "type": "Private Ad",
+        "text": "I want to sell a book",
+        "date": "25/03/23"
+    },
+        {
+        "type": "Quizlet",
+        "answer": "Batman",
+        "conclusion": "10 %"
+    }
+]
