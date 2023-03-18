@@ -31,7 +31,9 @@ def main():
             answer = 0
             while (answer == 1 or answer == 2) is False:
                 answer = int(input(
-                    f'If you want to ingest your file from default directory - enter 1, '
+                    f'If you want to ingest your file to default directory - '
+                    f'C:/Users/Nastassia_Lahoiskaya/PycharmProjects/Python-for-DQE/'
+                    f'fix_news_applications/list_of_actions.txt - enter 1,\n '
                     f'if you want to change it - enter 2: '))
             if answer == 1:
                 output_file_path = f'{os.getcwd()}/list_of_actions.txt'

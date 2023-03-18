@@ -5,7 +5,8 @@ class Advertising:
     def __init__(self, adv_message, actual_until=None):
         self.adv_message = adv_message
         self.actual_until = actual_until
-        self.message = f'Private Ad ------------------\n{self.adv_message}\n' \
+        self.message = f'\n' \
+                       f'Private Ad ------------------\n{self.adv_message}\n' \
                        f'Actual until: {self.actual_until}, ' \
                        f'{(datetime.datetime.strptime(self.actual_until, "%d/%m/%y") - datetime.datetime.now()).days} ' \
                        f'days left\n\n'
