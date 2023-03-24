@@ -1,0 +1,16 @@
+
+<records>
+    <block type = 'News'>
+        <text>Vacation was finished</text>
+        <location>Almaty</location>
+        <date>24/03/23 19:41</date>
+    </block>
+    <block type = 'Private Ad'>
+        <text>I want to sell books</text>
+        <date>28/03/23</date>
+    </block>
+        <block type = 'Quizlet'>
+        <answer>Batman</answer>
+        <conclusion>43 %</conclusion>
+    </block>
+</records>

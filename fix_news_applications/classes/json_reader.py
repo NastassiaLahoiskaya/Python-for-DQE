@@ -17,7 +17,7 @@ class JsonHandler:
             self.content_from_file = json.load(json_file)
 
     def format_json(self):
-        with open(self.output_file_path, "w") as file_txt:
+        with open(self.output_file_path, "a") as file_txt:
             for field in self.content_from_file:
                 if field.get("type") == 'News':
                     news = News(field.get("text"), field.get("location"))
@@ -35,10 +35,12 @@ class JsonHandler:
                 file_txt.write(self.formatted_text)
 
     def delete_input_file(self):
-        input('The file was processed successfully. Do you want to delete it? 1 - yes, 2 - no: ')
-        answer = 0
-        while (answer == 1 or answer == 2) is False:
-            answer = int(input('The file was saved '))
+        answer = int(input('The file was processed successfully. Do you want to delete it? 1 - yes, 2 - no: '))
+        while answer not in (1, 2):
+            answer = int(input('Invalid input. '
+                               'The file was processed successfully. Do you want to delete it? 1 - yes, 2 - no: '))
         if answer == 1:
             os.remove(self.input_file_path)
-            print('The file was deleted ')
+            print('The file was deleted')
+        else:
+            print('The file was saved')
