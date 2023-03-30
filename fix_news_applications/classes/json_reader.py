@@ -1,5 +1,6 @@
 import os
 import json
+from . import db_handler
 from .news import News
 from .advertising import Advertising
 from .quizlet import Quiz
@@ -11,6 +12,7 @@ class JsonHandler:
         self.output_file_path = output_file_path
         self.content_from_file = ''
         self.formatted_text = ''
+        self.db_handler = db_handler.DatabaseHandler()
 
     def read_file(self):
         with open(self.input_file_path) as json_file:
@@ -22,12 +24,15 @@ class JsonHandler:
                 if field.get("type") == 'News':
                     news = News(field.get("text"), field.get("location"))
                     self.formatted_text = news.news
+                    self.db_handler.insert_news(news)
                 elif field.get("type") == 'Private Ad':
                     advertising = Advertising(field.get("text"), field.get("date"))
                     self.formatted_text = advertising.message
+                    self.db_handler.insert_advertising(advertising)
                 elif field.get("type") == 'Quizlet':
                     quizlet = Quiz(field.get("answer"))
                     self.formatted_text = quizlet.question
+                    self.db_handler.insert_quiz(quizlet)
                 else:
                     print('Some unknown type of records was found')
                     self.content_from_file = 'Empty'
@@ -44,3 +49,6 @@ class JsonHandler:
             print('The file was deleted')
         else:
             print('The file was saved')
+
+    def close_db_connection(self):
+        self.db_handler.close()
