@@ -1,25 +1,32 @@
-News -------------------------
-I'm going to travel
-Almaty, 18/03/23 14:33
 
 News -------------------------
-I will finish homework
-Almaty, 18/03/23 14:33
+Vacation was finished
+Almaty, 24/03/23 19:02
+
 
 Private Ad ------------------
-I want to sell a book
-Actual until: 25/03/22, -359 days left
+I want to sell books
+Actual until: 28/03/23, 3 days left
+
 
 How do you think? ----------
 Who will win the fight: Batman or Spider-Man
 Batman
-probability: 17 %
+probability: 46 %
+
 
 News -------------------------
-snow fell in the mountains yesterday
-almaty, 02/03/23 22:12
+Vacation was finished
+Almaty, 24/03/23 19:04
 
 
-news -------------------------
-spring is coming
-almaty, 02/03/23 22:12
+Private Ad ------------------
+I want to sell books
+Actual until: 28/03/23, 3 days left
+
+
+How do you think? ----------
+Who will win the fight: Batman or Spider-Man
+Batman
+probability: 48 %
+
