@@ -1,4 +1,5 @@
 import os
+from . import db_handler
 from .news import News
 from .advertising import Advertising
 from .quizlet import Quiz
@@ -11,6 +12,7 @@ class XmlHandler:
         self.output_file_path = output_file_path
         self.content_from_file = ''
         self.formatted_text = ''
+        self.db_handler = db_handler.DatabaseHandler()
 
     def read_file(self):
         tree = ET.parse(self.input_file_path)
@@ -22,12 +24,15 @@ class XmlHandler:
             if field.get("type") == 'News':
                 news = News(field.find('text').text, field.find('location').text)
                 self.formatted_text += news.news
+                self.db_handler.insert_news(news)
             elif field.get("type") == 'Private Ad':
                 advertising = Advertising(field.find('text').text, field.find('date').text)
                 self.formatted_text += advertising.message
+                self.db_handler.insert_advertising(advertising)
             elif field.get("type") == 'Quizlet':
                 quizlet = Quiz(field.find('answer').text)
                 self.formatted_text += quizlet.question
+                self.db_handler.insert_quiz(quizlet)
             else:
                 print('Some unknown type of records was found')
                 self.content_from_file = 'Empty'
